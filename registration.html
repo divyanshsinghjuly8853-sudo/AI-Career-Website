@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="nav-logo">
+            <img src="images/srmu-logo.png" alt="SRMU Logo">
+            SRMU AI Project
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="registration.html" class="active">Registration</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <h1>Event Registration</h1>
+        <p>Join the AI Awareness Workshop 2025</p>
+    </div>
+
+    <div class="container">
+        <h2>Secure Your Spot</h2>
+        <p style="text-align: center;">Fill out the form below to reserve your seat for the upcoming student workshop.</p>
+
+        <form id="regForm">
+            <div class="form-group">
+                <label for="studentName">Full Name:</label>
+                <input type="text" id="studentName" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">University Email:</label>
+                <input type="email" id="email" placeholder="example@srmu.ac.in" required>
+            </div>
+
+            <div class="form-group">
+                <label for="branch">Branch:</label>
+                <select id="branch">
+                    <option value="CSE">CSE (Core)</option>
+                    <option value="CSE-DS-AI">CSE (DS & AI)</option>
+                    <option value="IT">IT</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="year">Year:</label>
+                <select id="year">
+                    <option value="1st">1st Year</option>
+                    <option value="2nd">2nd Year</option>
+                    <option value="3rd">3rd Year</option>
+                    <option value="4th">4th Year</option>
+                </select>
+            </div>
+
+            <button type="submit">Register Now</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 AI Project Team (Vaishali, Divyansh, Gaurav) | SRMU B.Tech CSE</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
