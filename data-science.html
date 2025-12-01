@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>One-Click Data Science Guide</title>
+  <style>
+    :root{--bg:#0f1724;--card:#0b1220;--muted:#9aa4b2;--accent:#06b6d4;--glass:rgba(255,255,255,0.03)}
+    *{box-sizing:border-box;font-family:Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial}
+    body{margin:0;background:linear-gradient(180deg,#071022 0%, #081228 60%);color:#e6eef6;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+    .wrap{width:100%;max-width:980px}
+    header{display:flex;gap:12px;align-items:center;margin-bottom:18px}
+    .logo{width:64px;height:64px;background:linear-gradient(135deg,#0ea5a4,#7c3aed);border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:700;color:#02101a}
+    h1{font-size:20px;margin:0}
+    p.lead{margin:6px 0 0;color:var(--muted)}
+    .controls{display:flex;gap:10px;margin:18px 0}
+    button{background:var(--accent);border:0;padding:10px 14px;border-radius:10px;color:#042028;font-weight:600;cursor:pointer}
+    button.secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+    .grid{display:grid;grid-template-columns:1fr 360px;gap:18px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+    .content h2{margin:0 0 8px}
+    .section{margin-bottom:12px}
+    .pill{display:inline-block;padding:6px 8px;border-radius:999px;background:var(--glass);color:var(--muted);font-size:13px;margin:6px 6px 0 0}
+    .fields{display:flex;flex-wrap:wrap}
+    .field{flex:1 1 45%;border-radius:10px;padding:10px;margin:6px;background:rgba(255,255,255,0.02);min-width:150px}
+    pre{background:#02101a;padding:12px;border-radius:8px;overflow:auto;color:#d9f0f6;font-size:13px}
+    .right .toc{position:sticky;top:24px}
+    .search{display:flex;gap:8px}
+    input[type=search]{flex:1;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+    .small{font-size:13px;color:var(--muted)}
+    footer{margin-top:14px;color:var(--muted);font-size:13px}
+    .copy-btn{background:transparent;border:1px dashed rgba(255,255,255,0.06);color:var(--muted);padding:6px 8px;border-radius:8px;cursor:pointer}
+    @media(max-width:900px){.grid{grid-template-columns:1fr}.right{order:2}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo">DS</div>
+      <div>
+        <h1>One-Click Data Science Guide</h1>
+        <p class="lead">A compact, interactive guide that explains what data science is and the main fields — open this file and click "Explain Data Science".</p>
+      </div>
+    </header>
+
+    <div class="controls">
+      <button id="oneClick">Explain Data Science</button>
+      <button class="secondary" id="toggleExamples">Show / Hide Examples</button>
+      <button class="secondary" id="downloadJava">Download Java Example</button>
+    </div>
+
+    <div class="grid">
+      <main class="card content">
+        <div id="output" aria-live="polite" style="min-height:220px">
+          <h2>Quick primer</h2>
+          <p class="small">Click the <strong>Explain Data Science</strong> button to show a friendly one-click explanation, fields, tools, and a short learning path. Use the right panel for fast navigation.</p>
+        </div>
+
+        <div class="section" id="examples" style="display:none">
+          <h3>Short examples</h3>
+          <div class="small">
+            <p><strong>Data Analysis:</strong> cleaning a sales CSV, computing monthly revenue and plotting trends.</p>
+            <p><strong>Machine Learning:</strong> training a model to predict house prices from features like area and bedrooms.</p>
+            <p><strong>Data Engineering:</strong> building a pipeline that ingests logs, transforms them and writes to a data warehouse.</p>
+          </div>
+        </div>
+
+        <div class="section">
+          <h3>Java example (preview)</h3>
+          <pre id="javaPreview" style="height:160px;">// Click "Download Java Example" to get full Java source file.
+</pre>
+          <div style="display:flex;gap:8px;margin-top:8px">
+            <button class="copy-btn" id="copyJava">Copy Java Code</button>
+            <button class="secondary" id="showMore">Expand Full Guide</button>
+          </div>
+        </div>
+
+      </main>
+
+      <aside class="right">
+        <div class="card toc">
+          <h3 style="margin-top:0">At a glance</h3>
+          <div class="small">
+            <div class="pill">Definition</div>
+            <div class="pill">Fields</div>
+            <div class="pill">Tools</div>
+            <div class="pill">Learning Path</div>
+            <div class="pill">Java Example</div>
+          </div>
+
+          <hr style="border:none;border-top:1px solid rgba(255,255,255,0.03);margin:12px 0">
+          <div class="search">
+            <input type="search" id="search" placeholder="Search fields or tools...">
+            <button class="secondary" id="clearSearch">Clear</button>
+          </div>
+
+          <div style="margin-top:12px">
+            <strong class="small">Fields</strong>
+            <div class="fields" id="fieldsList" style="margin-top:8px">
+              <!-- filled by JS -->
+            </div>
+          </div>
+
+          <hr style="border:none;border-top:1px solid rgba(255,255,255,0.03);margin:12px 0">
+          <div class="small">Tip: open this file in a browser (double-click) and use the buttons above.</div>
+        </div>
+      </aside>
+    </div>
+
+    <footer class="card">
+      <div class="small">Made for fast learning — includes a downloadable Java example you can compile with <code>javac DataScienceGuide.java</code> and run with <code>java DataScienceGuide</code>.</div>
+    </footer>
+  </div>
+
+<script>
+const fields = [
+  {title:'Data Analysis', desc:'Exploring and summarizing data to find patterns, using tools like Python (pandas) and Excel.'},
+  {title:'Machine Learning', desc:'Building models to predict or classify things (scikit-learn, TensorFlow, PyTorch).'},
+  {title:'Data Engineering', desc:'Designing pipelines, ETL, databases, streaming (Airflow, Spark, Kafka).'},
+  {title:'Data Visualization', desc:'Communicating insights with charts and dashboards (Matplotlib, D3, Tableau, PowerBI).'},
+  {title:'NLP (Natural Language Processing)', desc:'Working with text: sentiment, summarization, chatbots.'},
+  {title:'Computer Vision', desc:'Analyzing images and video for detection, classification, segmentation.'},
+  {title:'MLOps', desc:'Deploying and monitoring ML systems (Docker, Kubernetes, CI/CD).'},
+  {title:'Business Analytics', desc:'Translating data into business decisions and KPIs.'}
+];
+
+function renderFields(list){
+  const container = document.getElementById('fieldsList');
+  container.innerHTML = '';
+  list.forEach(f=>{
+    const el = document.createElement('div'); el.className='field';
+    el.innerHTML = `<strong>${f.title}</strong><div class="small">${f.desc}</div>`;
+    container.appendChild(el);
+  });
+}
+
+renderFields(fields);
+
+// Main one-click explanation
+document.getElementById('oneClick').addEventListener('click', ()=>{
+  const out = document.getElementById('output');
+  out.innerHTML = `
+    <h2>What is Data Science?</h2>
+    <p class="small">Data science combines statistics, programming, and domain knowledge to extract insights and build data-driven solutions from raw data.</p>
+    <div class="section">
+      <h3>Core steps</h3>
+      <ul class="small">
+        <li>Collect & store data</li>
+        <li>Clean & explore</li>
+        <li>Model (statistics / ML)</li>
+        <li>Validate & deploy</li>
+        <li>Monitor & iterate</li>
+      </ul>
+    </div>
+    <div class="section">
+      <h3>Fields & Tools</h3>
+      <div class="fields">
+        ${fields.map(f=>`<div class="field"><strong>${f.title}</strong><div class="small">${f.desc}</div></div>`).join('')}
+      </div>
+    </div>
+    <div class="section">
+      <h3>Quick learning path</h3>
+      <ol class="small"><li>Learn Python or R + statistics</li><li>Practice with datasets (Kaggle)</li><li>Build projects: dashboards, prediction models</li><li>Learn ML libraries and basics of deployment</li></ol>
+    </div>
+    <div class="section small">Want examples? Click <em>Show / Hide Examples</em>.</div>
+  `;
+});
+
+// Toggle examples
+document.getElementById('toggleExamples').addEventListener('click', ()=>{
+  const el = document.getElementById('examples');
+  el.style.display = (el.style.display === 'none' || el.style.display === '')? 'block' : 'none';
+});
+
+// Search
+document.getElementById('search').addEventListener('input',(e)=>{
+  const q = e.target.value.toLowerCase().trim();
+  const filtered = fields.filter(f=>f.title.toLowerCase().includes(q) || f.desc.toLowerCase().includes(q));
+  renderFields(filtered.length?filtered:fields);
+});
+
+document.getElementById('clearSearch').addEventListener('click', ()=>{document.getElementById('search').value='';renderFields(fields);});
+
+// Show more / expand
+document.getElementById('showMore').addEventListener('click', ()=>{
+  const out = document.getElementById('output');
+  out.scrollIntoView({behavior:'smooth'});
+  document.getElementById('oneClick').click();
+});
+
+// Java example source (string embedded so we can copy/download)
+const javaSource = `public class DataScienceGuide {
+    public static void main(String[] args) {
+        System.out.println("Data Science - Quick Java Primer\n");
+        System.out.println("What is Data Science?\nData science combines statistics, computing, and domain expertise to extract insights from data.");
+        System.out.println("\nFields:");
+        System.out.println(" - Data Analysis\n - Machine Learning\n - Data Engineering\n - Data Visualization\n - NLP and Computer Vision\n - MLOps and Business Analytics");
+
+        System.out.println("\nSimple example: calculate average of sample numbers");
+        double[] arr = {12.5, 9.0, 25.3, 7.2};
+        double sum = 0; for(double v:arr) sum += v;
+        System.out.println("Average = " + (sum/arr.length));
+    }
+}
+`;
+
+// Put preview into page
+document.getElementById('javaPreview').textContent = javaSource.substring(0, 400) + '\n// ...';
+
+// Copy Java to clipboard
+document.getElementById('copyJava').addEventListener('click', async ()=>{
+  try{
+    await navigator.clipboard.writeText(javaSource);
+    alert('Java source copied to clipboard — you can paste into DataScienceGuide.java');
+  }catch(e){
+    alert('Copy failed — select the Java code in the preview and copy manually.');
+  }
+});
+
+// Download Java
+document.getElementById('downloadJava').addEventListener('click', ()=>{
+  const blob = new Blob([javaSource], {type: 'text/plain'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a'); a.href = url; a.download = 'DataScienceGuide.java'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+});
+
+// Provide Java preview when copying or downloading via preview button
+// (already wired above)
+
+</script>
+</body>
+</html>
