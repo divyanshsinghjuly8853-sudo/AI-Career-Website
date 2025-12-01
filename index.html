@@ -3,77 +3,252 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Careers - Home</title>
-    <link rel="stylesheet" href="style.css">
+    <title>AI Careers & Machine Learning</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f4f7f6;
+        }
+
+        /* Navigation */
+        nav {
+            background: #0056b3;
+            color: white;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: #007bff;
+            color: white;
+        }
+
+        .container {
+            width: 85%;
+            margin: auto;
+            padding: 20px 0;
+        }
+
+        /* Job Card Section */
+        .job-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .job-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .job-card:hover {
+            transform: scale(1.03);
+        }
+
+        .job-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            cursor: pointer;
+        }
+
+        .job-card-content {
+            padding: 15px;
+        }
+
+        /* MACHINE LEARNING PAGE BELOW */
+        header {
+            background: #007bff;
+            color: white;
+            padding: 20px 10px;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .concept-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .concept-section h2 {
+            border-bottom: 2px solid #eee;
+            padding-bottom: 5px;
+            color: #007bff;
+        }
+
+        .type-of-ml {
+            margin-bottom: 15px;
+            border-left: 5px solid #28a745;
+            padding-left: 10px;
+        }
+
+        .code-example {
+            background: #f0f0f0;
+            padding: 15px;
+            border-radius: 10px;
+            white-space: pre-wrap;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #0056b3;
+            color: white;
+        }
+    </style>
 </head>
 <body>
 
-    <nav>
-        <div class="nav-logo">
-            <img src="images/srmu-logo.png" alt="SRMU Logo">
-            SRMU AI Project
-        </div>
-        <div class="nav-links">
-            <a href="index.html" class="active">Home</a>
-            <a href="about.html">About Us</a>
-            <a href="registration.html">Registration</a>
-            <a href="contact.html">Contact Us</a>
-        </div>
-    </nav>
-
-    <div class="hero">
-        <h1>The Future is Artificial Intelligence</h1>
-        <p>Exploring Career Paths in the Era of Automation</p>
+<!-- NAVIGATION -->
+<nav>
+    <div class="nav-logo"><strong>SRMU AI Project</strong></div>
+    <div>
+        <a href="#home">Home</a>
+        <a href="#ml-section">Machine Learning</a>
     </div>
+</nav>
 
-    <div class="container">
-        <h2>Why Choose a Career in AI?</h2>
-        <p>Artificial Intelligence is transforming the world. From healthcare to finance, AI professionals are in high demand. As 1st Year B.Tech CSE students, understanding these roles is crucial for our future.</p>
+<!-- HERO SECTION -->
+<div class="hero" id="home">
+    <h1>The Future is Artificial Intelligence</h1>
+    <p>Exploring Career Paths in the Era of Automation</p>
+</div>
 
-        <h3>Top Career Paths</h3>
-        <div class="job-grid">
-            
-            <div class="job-card">
-                <a href="https://github.com/divyanshsinghjuly8853-sudo/AI-Career-Website/blob/main/Machine-learning.html">
+<!-- CAREER SECTION -->
+<div class="container">
+    <h2>Top Career Paths</h2>
+
+    <div class="job-grid">
+
+        <!-- MACHINE LEARNING CLICKABLE CARD -->
+        <div class="job-card">
+            <a href="#ml-section">
                 <img src="images/job-ml.png" alt="Machine Learning">
                 <div class="job-card-content">
                     <h4>Machine Learning Engineer</h4>
                     <p>Designs and builds self-running software to automate predictive models.</p>
                 </div>
-            </div>
-
-            <div class="job-card">
-                <img src="images/job-data.png" alt="Data Science">
-                <div class="job-card-content">
-                    <h4>Data Scientist</h4>
-                    <p>Analyzes complex data to help organizations make better decisions.</p>
-                </div>
-            </div>
-
-            <div class="job-card">
-                <img src="images/job-ethics.png" alt="AI Ethics">
-                <div class="job-card-content">
-                    <h4>AI Ethicist</h4>
-                    <p>Ensures AI systems are fair, transparent, and safe for society.</p>
-                </div>
-            </div>
-
-            <div class="job-card">
-                <img src="images/job-robot.png" alt="Robotics">
-                <div class="job-card-content">
-                    <h4>Robotics Engineer</h4>
-                    <p>Creates robots that can perform tasks humans cannot or prefer not to do.</p>
-                </div>
-            </div>
-
+            </a>
         </div>
-    </div>
 
-    <footer>
-        <p>&copy; 2025 AI Project Team (Vaishali, Divyansh, Gaurav) | SRMU B.Tech CSE</p>
-    </footer>
+        <!-- OTHERS -->
+        <div class="job-card">
+            <img src="images/job-data.png" alt="Data Science">
+            <div class="job-card-content">
+                <h4>Data Scientist</h4>
+                <p>Analyzes complex data to help organizations make better decisions.</p>
+            </div>
+        </div>
+
+        <div class="job-card">
+            <img src="images/job-ethics.png" alt="AI Ethics">
+            <div class="job-card-content">
+                <h4>AI Ethicist</h4>
+                <p>Ensures AI systems are fair, transparent & safe.</p>
+            </div>
+        </div>
+
+        <div class="job-card">
+            <img src="images/job-robot.png" alt="Robotics">
+            <div class="job-card-content">
+                <h4>Robotics Engineer</h4>
+                <p>Builds robots that assist humans & automate tasks.</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- ================= MACHINE LEARNING FULL PAGE ================= -->
+
+<header id="ml-section">
+    <h1>🧠 Machine Learning: The Core Concepts</h1>
+    <p>Turning Data into Actionable Intelligence</p>
+</header>
+
+<div class="container">
+
+    <section class="concept-section">
+        <h2>What is Machine Learning?</h2>
+        <p>Machine Learning (ML) is a subset of AI that allows systems to learn from data without being explicitly programmed.</p>
+        <p>ML models learn patterns from data and make predictions or decisions.</p>
+    </section>
+
+    <section class="concept-section">
+        <h2>Types of Machine Learning</h2>
+
+        <div class="type-of-ml">
+            <h3>1. Supervised Learning</h3>
+            <p>Uses labeled data to train models.</p>
+        </div>
+
+        <div class="type-of-ml" style="border-left-color:#ffc107">
+            <h3>2. Unsupervised Learning</h3>
+            <p>Finds hidden patterns in unlabeled data.</p>
+        </div>
+
+        <div class="type-of-ml" style="border-left-color:#dc3545">
+            <h3>3. Reinforcement Learning</h3>
+            <p>Models learn through rewards & penalties.</p>
+        </div>
+    </section>
+
+    <section class="concept-section">
+        <h2>Python ML Example</h2>
+
+        <div class="code-example">
+<pre>
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+
+data = pd.read_csv('data.csv')
+
+X = data[['X_feature']]
+y = data['Y_target']
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+
+model = LinearRegression()
+model.fit(X_train, y_train)
+
+new_value = pd.DataFrame({'X_feature': [15]})
+prediction = model.predict(new_value)
+
+print(prediction)
+</pre>
+        </div>
+    </section>
+
+</div>
+
+<footer>
+    &copy; 2025 AI Project Team | SRMU B.Tech CSE
+</footer>
 
 </body>
-
 </html>
-
