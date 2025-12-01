@@ -1,189 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Machine Learning Guide</title>
+    <title>Machine Learning | AI Career Guide</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
     <style>
-        body {
+        * {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f4f8ff;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
         }
 
+        body {
+            background: #f0f6ff;
+            color: #333;
+        }
+
+        /* HEADER */
         header {
-            background: #4A90E2;
-            padding: 25px;
+            background: linear-gradient(to right, #3c8ce7, #00eaff);
+            padding: 40px;
             text-align: center;
             color: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
 
         header h1 {
-            margin: 0;
-            font-size: 36px;
+            font-size: 42px;
+            font-weight: 600;
+        }
+
+        header p {
+            font-size: 18px;
+            margin-top: 10px;
         }
 
         .container {
             width: 90%;
             margin: auto;
-            padding: 20px;
+            padding: 30px 0;
         }
 
+        /* SECTION BOX */
         .section {
             background: white;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 12px;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 15px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.1);
         }
 
         .section h2 {
-            color: #4A90E2;
-            margin-bottom: 10px;
+            color: #0077ff;
+            margin-bottom: 15px;
+            font-size: 28px;
         }
 
         .section p {
-            line-height: 1.6;
-            color: #333;
+            line-height: 1.7;
+            font-size: 17px;
         }
 
-        .ml-types {
+        /* IMAGE BANNERS */
+        .banner-img {
+            width: 100%;
+            border-radius: 15px;
+            margin: 15px 0;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.15);
+        }
+
+        /* GRID STYLING */
+        .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
             margin-top: 20px;
         }
 
+        /* CARD */
         .card {
             background: #ffffff;
             padding: 20px;
-            border-radius: 12px;
+            border-radius: 15px;
             text-align: center;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.12);
             transition: 0.3s;
         }
 
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 14px rgba(0, 0, 0, 0.18);
+            transform: translateY(-7px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
         }
 
         .card img {
-            width: 120px;
-            height: 120px;
+            width: 130px;
+            height: 130px;
             margin-bottom: 15px;
         }
 
+        .card h3 {
+            margin-bottom: 10px;
+        }
+
+        /* BACK BUTTON */
         .back-btn {
             display: inline-block;
             margin: 20px 0;
-            padding: 12px 20px;
-            background: #4A90E2;
+            padding: 12px 25px;
+            background: #0077ff;
             color: white;
-            border-radius: 8px;
+            border-radius: 10px;
             text-decoration: none;
             font-size: 16px;
             transition: 0.3s;
         }
 
         .back-btn:hover {
-            background: #357ac6;
+            background: #005fd6;
         }
 
+        /* FOOTER */
         footer {
-            background: #4A90E2;
+            background: #0077ff;
             color: white;
-            text-align: center;
             padding: 15px;
             margin-top: 30px;
+            text-align: center;
         }
     </style>
 </head>
 
 <body>
 
+    <!-- HEADER -->
     <header>
-        <h1>Machine Learning - Complete Guide</h1>
-        <p>Understand ML Concepts, Types, Applications, and Learning Path</p>
+        <h1>Machine Learning</h1>
+        <p>The Technology Behind Smart Machines & Intelligent Systems</p>
     </header>
 
     <div class="container">
 
-        <!-- Introduction -->
+        <!-- ABOUT ML -->
         <div class="section">
             <h2>What is Machine Learning?</h2>
+            <img src="images/ml-banner.jpg" class="banner-img" alt="Machine Learning Banner">
+
             <p>
-                Machine Learning (ML) is a branch of Artificial Intelligence that allows computers to learn from data
-                without being explicitly programmed. ML powers modern systems like recommendation engines, self-driving
-                cars, fraud detection, virtual assistants, and many more.
+                Machine Learning (ML) is a branch of Artificial Intelligence where machines learn from data and 
+                improve their performance without being explicitly programmed. ML powers real-life systems such as:
             </p>
-        </div>
-
-        <!-- Types of Machine Learning -->
-        <div class="section">
-            <h2>Types of Machine Learning</h2>
-
-            <div class="ml-types">
-
-                <div class="card">
-                    <img src="images/supervised.png" alt="Supervised Learning">
-                    <h3>Supervised Learning</h3>
-                    <p>Trains on labeled data and predicts outputs. Used in spam detection, price prediction, etc.</p>
-                </div>
-
-                <div class="card">
-                    <img src="images/unsupervised.png" alt="Unsupervised Learning">
-                    <h3>Unsupervised Learning</h3>
-                    <p>Finds patterns in unlabeled data. Used in clustering, grouping, and anomaly detection.</p>
-                </div>
-
-                <div class="card">
-                    <img src="images/reinforcement.png" alt="Reinforcement Learning">
-                    <h3>Reinforcement Learning</h3>
-                    <p>Learns through rewards & penalties. Used in robotics, gaming, self-driving systems.</p>
-                </div>
-
-            </div>
-        </div>
-
-        <!-- Applications -->
-        <div class="section">
-            <h2>Real-World Applications of ML</h2>
             <ul>
                 <li>Self-driving cars</li>
+                <li>Face recognition</li>
                 <li>Medical diagnosis</li>
                 <li>Fraud detection</li>
-                <li>Speech & image recognition</li>
-                <li>Product recommendations (Amazon, Netflix)</li>
-                <li>Customer behavior prediction</li>
+                <li>Virtual assistants (Siri, Alexa)</li>
             </ul>
         </div>
 
-        <!-- Learning Path -->
+        <!-- TYPES OF ML -->
         <div class="section">
-            <h2>How to Learn Machine Learning?</h2>
-            <p>Follow this step-by-step learning path:</p>
+            <h2>Types of Machine Learning</h2>
+
+            <div class="grid">
+                <div class="card">
+                    <img src="images/supervised.png" alt="">
+                    <h3>Supervised Learning</h3>
+                    <p>Learning using labeled data (e.g., email spam detection).</p>
+                </div>
+
+                <div class="card">
+                    <img src="images/unsupervised.png" alt="">
+                    <h3>Unsupervised Learning</h3>
+                    <p>Finding hidden patterns in data (e.g., customer segmentation).</p>
+                </div>
+
+                <div class="card">
+                    <img src="images/reinforcement.png" alt="">
+                    <h3>Reinforcement Learning</h3>
+                    <p>Learning through rewards and punishments (e.g., robotics, gaming).</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- JOB OPPORTUNITIES -->
+        <div class="section">
+            <h2>Job Opportunities in Machine Learning</h2>
+
+            <div class="grid">
+                <div class="card">
+                    <img src="images/job-ml.png" alt="">
+                    <h3>Machine Learning Engineer</h3>
+                    <p>Builds ML systems and predictive models.</p>
+                </div>
+
+                <div class="card">
+                    <img src="images/job-data.png" alt="">
+                    <h3>Data Scientist</h3>
+                    <p>Analyzes data and makes predictions using ML algorithms.</p>
+                </div>
+
+                <div class="card">
+                    <img src="images/ai-researcher.png" alt="">
+                    <h3>AI Research Scientist</h3>
+                    <p>Creates new algorithms and researches ML advancements.</p>
+                </div>
+
+                <div class="card">
+                    <img src="images/robot.png" alt="">
+                    <h3>Robotics Programmer</h3>
+                    <p>Uses ML to train robots for automation tasks.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- HOW TO LEARN ML -->
+        <div class="section">
+            <h2>How to Start Learning Machine Learning?</h2>
+
             <ol>
-                <li>Learn Python fundamentals</li>
-                <li>Understand mathematics (Linear algebra, probability, statistics)</li>
-                <li>Learn ML algorithms: Regression, Classification, Clustering</li>
-                <li>Practice using ML libraries (NumPy, Pandas, Scikit-Learn)</li>
-                <li>Build ML projects</li>
-                <li>Learn Deep Learning (Neural Networks, CNN, RNN)</li>
-                <li>Create portfolio & apply for jobs</li>
+                <li>Learn Python Programming</li>
+                <li>Understand Math (Statistics, Algebra, Probability)</li>
+                <li>Study ML Algorithms (Regression, Classification, Clustering)</li>
+                <li>Practice with Libraries (NumPy, Pandas, Scikit-Learn)</li>
+                <li>Build ML Projects</li>
+                <li>Learn Deep Learning & Neural Networks</li>
             </ol>
         </div>
 
-        <a class="back-btn" href="index.html">⬅ Go Back to Home</a>
+        <a class="back-btn" href="index.html">⬅ Back to Home</a>
 
     </div>
 
     <footer>
-        <p>© 2025 Machine Learning Guide | Designed by Vicky</p>
+        <p>© 2025 ML Career Guide | Designed by Vicky Singh</p>
     </footer>
 
 </body>
-
 </html>
